@@ -20,12 +20,14 @@ export async function GET() {
     try {
       const data = await fs.readFile(dataFilePath, 'utf8')
       return NextResponse.json(JSON.parse(data))
-    } catch (error) {
+    } catch (_error) {
       // If file doesn't exist, return empty array
+      console.error(_error)
       await fs.writeFile(dataFilePath, JSON.stringify([]))
       return NextResponse.json([])
     }
-  } catch (error) {
+  } catch (_error) {
+    console.error(_error)
     return NextResponse.json({ error: 'Failed to read pushups data' }, { status: 500 })
   }
 }
@@ -47,7 +49,8 @@ export async function POST(request: Request) {
     await fs.writeFile(dataFilePath, JSON.stringify(history))
     
     return NextResponse.json(history)
-  } catch (error) {
+  } catch (_error) {
+    console.error(_error)
     return NextResponse.json({ error: 'Failed to save pushup' }, { status: 500 })
   }
 } 

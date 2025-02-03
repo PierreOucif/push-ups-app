@@ -112,7 +112,7 @@ export function PushupTracker() {
         <CardHeader className="pb-3">
           <div className="flex items-center space-x-2">
             <Activity className="h-5 w-5 text-[#0070f3]" />
-            <CardTitle className="text-zinc-200 text-lg">Today's Progress</CardTitle>
+            <CardTitle className="text-zinc-200 text-lg">Today&apos;s Progress</CardTitle>
           </div>
           <CardDescription className="text-zinc-400 text-sm">Track your daily pushup goal</CardDescription>
         </CardHeader>
